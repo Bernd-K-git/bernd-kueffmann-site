@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1250" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Industrial geometric pattern in dark metal tones">
+  <defs>
+    <radialGradient id="a-bg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#2a2d33" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#16181c" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1000" height="1250" fill="#16181c"/>
+  <rect width="1000" height="1250" fill="url(#a-bg)"/>
+
+  <g stroke="#6b7585" fill="none">
+    <circle cx="500" cy="625" r="320" stroke-width="0.6" stroke-opacity="0.3"/>
+    <circle cx="500" cy="625" r="260" stroke-width="0.7" stroke-opacity="0.45"/>
+    <circle cx="500" cy="625" r="200" stroke-width="0.7" stroke-opacity="0.5"/>
+    <circle cx="500" cy="625" r="140" stroke-width="0.8" stroke-opacity="0.55"/>
+    <circle cx="500" cy="625" r="80"  stroke-width="0.9" stroke-opacity="0.6"/>
+    <circle cx="500" cy="625" r="20"  stroke-width="1.0" stroke-opacity="0.85" fill="#6b7585" fill-opacity="0.25"/>
+  </g>
+
+  <g stroke="#6b7585" stroke-width="0.5" stroke-opacity="0.35">
+    <line x1="500" y1="305" x2="500" y2="100"/>
+    <line x1="500" y1="945" x2="500" y2="1150"/>
+    <line x1="180" y1="625" x2="50"  y2="625"/>
+    <line x1="820" y1="625" x2="950" y2="625"/>
+    <line x1="274" y1="399" x2="160" y2="285"/>
+    <line x1="726" y1="399" x2="840" y2="285"/>
+    <line x1="274" y1="851" x2="160" y2="965"/>
+    <line x1="726" y1="851" x2="840" y2="965"/>
+  </g>
+
+  <g stroke="#9aa5b3" stroke-width="0.8" stroke-opacity="0.6" fill="none">
+    <polyline points="80,80 80,140 140,140"/>
+    <polyline points="920,80 920,140 860,140"/>
+    <polyline points="80,1170 80,1110 140,1110"/>
+    <polyline points="920,1170 920,1110 860,1110"/>
+  </g>
+</svg>

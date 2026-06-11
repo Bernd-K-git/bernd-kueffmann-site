@@ -1,0 +1,28 @@
+<div id="chat-root" class="chat-root">
+  <button class="chat-launch" aria-expanded="false" aria-controls="chat-panel">
+    <span class="chat-launch-dot" aria-hidden="true"></span>
+    <span class="chat-launch-label">Ask</span>
+  </button>
+  <div id="chat-panel" class="chat-panel" role="dialog" aria-label="Chat with Bernd&rsquo;s site">
+    <header class="chat-header">
+      <div>
+        <div class="chat-title">Ask about Bernd&rsquo;s work</div>
+        <div class="chat-sub">AI-generated · grounded in this site · conversation is ephemeral, not stored.</div>
+      </div>
+      <button class="chat-close" aria-label="Close chat">&times;</button>
+    </header>
+    <div class="chat-messages" aria-live="polite"></div>
+    <form class="chat-form" autocomplete="off">
+      <input type="text" name="msg" placeholder="Ask a question…" required maxlength="500" autocomplete="off">
+      <button type="submit" class="chat-send" aria-label="Send">→</button>
+    </form>
+  </div>
+</div>
+
+<div id="cookie-banner" class="cookie-banner" hidden>
+  <p>This site uses minimal essential cookies to remember your preferences. No tracking, no analytics.</p>
+  <div class="cookie-banner-actions">
+    <button id="cookie-ok" class="btn btn-primary">OK</button>
+    <a href="/privacy.html" class="btn-link">Learn more</a>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{% set urls = [
+  { loc: '/',                priority: '1.0' },
+  { loc: '/profile.html',    priority: '0.9' },
+  { loc: '/projects.html',   priority: '0.9' },
+  { loc: '/training.html',   priority: '0.7' },
+  { loc: '/contact.html',    priority: '0.7' }
+] -%}
+{% for u in urls %}  <url>
+    <loc>{{ site.baseUrl }}{{ u.loc }}</loc>
+    <lastmod>{{ page.date | iso }}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>{{ u.priority }}</priority>
+  </url>
+{% endfor -%}
+</urlset>

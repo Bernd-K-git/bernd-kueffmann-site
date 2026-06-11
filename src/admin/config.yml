@@ -1,0 +1,295 @@
+# Decap CMS configuration for the Bernd Küffmann site.
+#
+# Bernd opens https://transion.org/admin/ → signs in with GitHub → sees forms
+# for every editable piece of the site. Saving writes a commit to the GitHub
+# repo, Vercel rebuilds, the site updates automatically.
+
+backend:
+  name: github
+  repo: pkueffmann-debug/bernd-kueffmann-site
+  branch: main
+  base_url: https://transion.org       # used for the OAuth redirect
+  auth_endpoint: /api/oauth?action=auth
+
+# Where uploaded images go
+media_folder: src/assets/img
+public_folder: /assets/img
+
+# So that the "View live" button works
+display_url: https://transion.org
+site_url: https://transion.org
+
+# Show a Bernd-friendly label on the sign-in screen
+logo_url: /assets/og-image.png
+
+collections:
+
+  # ─────────────────────────────────────────────────────────
+  # SITE SETTINGS — global, used everywhere
+  # ─────────────────────────────────────────────────────────
+  - name: settings
+    label: Site Settings
+    label_singular: Settings
+    description: Global things that appear on every page (name, email, address, footer).
+    files:
+
+      - file: src/_data/site.yml
+        name: site
+        label: Identity & Contact
+        fields:
+          - { name: name, label: Display name, widget: string }
+          - { name: role, label: Role, widget: string }
+          - { name: tagline, label: Tagline, widget: string }
+          - { name: domain, label: Domain (no protocol), widget: string }
+          - { name: baseUrl, label: Base URL (with https://), widget: string }
+          - { name: email, label: Public email, widget: string }
+          - { name: linkedin, label: LinkedIn URL, widget: string }
+          - { name: linkedinLabel, label: LinkedIn display label, widget: string }
+          - { name: phone, label: Phone (leave blank to hide), widget: string, required: false }
+          - { name: office, label: Office line ("City · Country"), widget: string }
+          - name: address
+            label: Postal address (used in Imprint + Privacy)
+            widget: object
+            fields:
+              - { name: street, label: Street + Number, widget: string }
+              - { name: postalCode, label: Postal Code, widget: string }
+              - { name: city, label: City, widget: string }
+              - { name: country, label: Country, widget: string }
+          - { name: footerStrap, label: Footer two-liner, widget: text }
+          - { name: ogImage, label: Share image (Open Graph), widget: image }
+          - { name: formspreeId, label: Formspree form ID, widget: string }
+          - name: languages
+            label: Language toggle (header)
+            widget: list
+            fields:
+              - { name: code, label: Code, widget: string }
+              - { name: label, label: Display, widget: string }
+              - { name: href, label: URL, widget: string }
+              - { name: active, label: Active, widget: boolean, default: false, required: false }
+              - { name: soon, label: 'Coming soon (greys it out)', widget: boolean, default: false, required: false }
+
+      - file: src/_data/nav.yml
+        name: nav
+        label: Navigation menu
+        fields:
+          - name: items
+            label: Menu items
+            widget: list
+            fields:
+              - { name: label, label: Label, widget: string }
+              - { name: url, label: URL, widget: string }
+
+  # ─────────────────────────────────────────────────────────
+  # PAGES — one entry per page
+  # ─────────────────────────────────────────────────────────
+  - name: pages
+    label: Pages
+    description: All text content of each page. The structure follows what you see on the live site.
+    files:
+
+      # ─── HOME ───
+      - file: src/_data/home.yml
+        name: home
+        label: Home page
+        fields:
+          - { name: title, label: Browser tab title, widget: string }
+          - { name: metaDescription, label: Meta description (SEO), widget: text }
+          - name: hero
+            label: Hero (top of homepage)
+            widget: object
+            fields:
+              - { name: eyebrow, label: Small label above headline, widget: string }
+              - { name: heading, label: Main headline (use blank line for line break), widget: text }
+              - { name: lede, label: Lede paragraph, widget: text }
+              - { name: offering, label: Offering line (single sentence), widget: string }
+              - { name: ctaPrimaryLabel, label: Primary button label, widget: string }
+              - { name: ctaPrimaryUrl, label: Primary button URL, widget: string }
+              - { name: ctaLinkLabel, label: Secondary link label, widget: string }
+              - { name: ctaLinkUrl, label: Secondary link URL, widget: string }
+          - name: selectedProjects
+            label: Selected Projects (3 featured cards)
+            widget: object
+            fields:
+              - { name: eyebrow, label: Eyebrow, widget: string }
+              - { name: heading, label: Heading, widget: string }
+              - { name: viewAllLabel, label: "‘View all’ link label", widget: string }
+              - { name: viewAllUrl, label: "‘View all’ link URL", widget: string }
+          - name: focusAreas
+            label: Focus Areas section
+            widget: object
+            fields:
+              - { name: eyebrow, label: Eyebrow, widget: string }
+              - { name: heading, label: Heading, widget: string }
+              - name: items
+                label: Focus areas (3-4 lines each)
+                widget: list
+                fields:
+                  - { name: title, label: Title, widget: string }
+                  - { name: text, label: Description, widget: text }
+          - name: finalCta
+            label: Closing CTA section (dark band)
+            widget: object
+            fields:
+              - { name: heading, label: Heading, widget: string }
+              - { name: text, label: Subline, widget: string }
+              - { name: primaryLabel, label: Primary button label, widget: string }
+              - { name: primaryUrl, label: Primary button URL, widget: string }
+              - { name: linkLabel, label: Link label, widget: string }
+
+      # ─── PROFILE ───
+      - file: src/_data/profile.yml
+        name: profile
+        label: Profile page
+        fields:
+          - { name: title, label: Browser tab title, widget: string }
+          - { name: metaDescription, label: Meta description (SEO), widget: text }
+          - name: hero
+            label: Hero
+            widget: object
+            fields:
+              - { name: eyebrow, label: Eyebrow, widget: string }
+              - { name: heading, label: Headline (use blank line for line break), widget: text }
+              - { name: lede, label: Lede paragraph, widget: text }
+          - name: portraitImage
+            label: Portrait photo
+            widget: image
+            required: false
+            hint: Leave empty to show "Photo · TBD" placeholder.
+          - { name: portraitAlt, label: Portrait alt text, widget: string, required: false }
+          - name: bio
+            label: Bio paragraphs
+            widget: list
+            field: { name: paragraph, label: Paragraph, widget: text }
+          - name: industries
+            label: Industries section
+            widget: object
+            fields:
+              - { name: eyebrow, label: Eyebrow, widget: string }
+              - { name: heading, label: Heading, widget: string }
+              - { name: text, label: Description, widget: text }
+              - name: logos
+                label: Client logos (only with permission)
+                widget: list
+                required: false
+                fields:
+                  - { name: image, label: Logo image, widget: image }
+                  - { name: alt, label: Alt text, widget: string }
+
+      # ─── PROJECTS PAGE (just the page chrome — entries are below) ───
+      - file: src/_data/projects.yml
+        name: projects
+        label: Selected Projects page
+        fields:
+          - { name: title, label: Browser tab title, widget: string }
+          - { name: metaDescription, label: Meta description (SEO), widget: text }
+          - name: hero
+            label: Hero
+            widget: object
+            fields:
+              - { name: eyebrow, label: Eyebrow, widget: string }
+              - { name: heading, label: Headline, widget: string }
+              - { name: lede, label: Lede, widget: text }
+
+      # ─── TRAINING & MENTORING ───
+      - file: src/_data/training.yml
+        name: training
+        label: Training & Mentoring page
+        fields:
+          - { name: title, label: Browser tab title, widget: string }
+          - { name: metaDescription, label: Meta description (SEO), widget: text }
+          - name: hero
+            label: Hero
+            widget: object
+            fields:
+              - { name: eyebrow, label: Eyebrow, widget: string }
+              - { name: heading, label: Headline (blank line for break), widget: text }
+              - { name: lede, label: Lede, widget: text }
+          - name: topics
+            label: Topics section
+            widget: object
+            fields:
+              - { name: eyebrow, label: Eyebrow, widget: string }
+              - { name: heading, label: Heading, widget: string }
+              - name: items
+                label: Topics
+                widget: list
+                fields:
+                  - { name: title, label: Title, widget: string }
+                  - { name: text, label: Description, widget: text }
+          - name: formats
+            label: Formats section
+            widget: object
+            fields:
+              - { name: eyebrow, label: Eyebrow, widget: string }
+              - { name: heading, label: Heading, widget: string }
+              - name: items
+                label: Formats
+                widget: list
+                fields:
+                  - { name: title, label: Title, widget: string }
+                  - { name: text, label: Description, widget: text }
+
+      # ─── CONTACT ───
+      - file: src/_data/contact.yml
+        name: contact
+        label: Contact page
+        fields:
+          - { name: title, label: Browser tab title, widget: string }
+          - { name: metaDescription, label: Meta description (SEO), widget: text }
+          - name: hero
+            label: Hero
+            widget: object
+            fields:
+              - { name: eyebrow, label: Eyebrow, widget: string }
+              - { name: heading, label: Headline, widget: string }
+          - name: intro
+            label: Intro paragraphs (left column)
+            widget: list
+            field: { name: paragraph, label: Paragraph, widget: text }
+          - name: form
+            label: Short message form
+            widget: object
+            fields:
+              - { name: eyebrow, label: Eyebrow, widget: string }
+              - { name: heading, label: Heading, widget: string }
+              - { name: hint, label: Hint below heading, widget: string }
+              - { name: submitLabel, label: Submit button label, widget: string }
+
+  # ─────────────────────────────────────────────────────────
+  # ENGAGEMENTS — one entry per project; appears in the
+  # chronological table on /projects.html and (if featured)
+  # as a card on the homepage.
+  # ─────────────────────────────────────────────────────────
+  - name: engagements
+    label: Engagements
+    label_singular: Engagement
+    description: Each engagement is a single entry. Order them with the 'Order' field (1 = newest, top of the list).
+    folder: src/_engagements
+    create: true
+    delete: true
+    slug: '{{order | pad 2 "0"}}-{{slug | default(title) | lower | replace(" ", "-")}}'
+    summary: '{{year}} · {{industry}} · {{title}}'
+    sortable_fields: ['order', 'year', 'industry', 'title']
+    fields:
+      - { name: slug, label: Slug (URL anchor, e.g. telco-transition), widget: string }
+      - { name: order, label: 'Order on the page (1 = newest)', widget: number, value_type: int }
+      - { name: year, label: 'Year (e.g. "2024 →" or "2020–22")', widget: string }
+      - { name: industry, label: Industry, widget: string }
+      - { name: location, label: Location, widget: string }
+      - { name: title, label: Project title, widget: string }
+      - { name: role, label: Role, widget: string }
+      - { name: client, label: Client name shown on the right, widget: string }
+      - name: featured
+        label: Show this as a featured card on the homepage?
+        widget: boolean
+        default: false
+      - { name: featuredOrder, label: 'Featured order (only if featured, 1–3)', widget: number, required: false, value_type: int }
+      - { name: featuredTag, label: 'Card tag (e.g. "Telecommunications · Germany · 2024+")', widget: string, required: false }
+      - { name: featuredTitle, label: Card title (rewritten for the card), widget: string, required: false }
+      - { name: featuredDescription, label: Card description, widget: text, required: false }
+      - name: featuredImage
+        label: Card image
+        widget: image
+        required: false
+        hint: 'Upload one, or pick one of: /assets/img/pi-telco.svg, /assets/img/pi-engineering.svg, /assets/img/pi-automotive.svg'
+      - { name: body, label: 'Notes (optional, not yet displayed)', widget: markdown, required: false }

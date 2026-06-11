@@ -1,0 +1,49 @@
+---
+permalink: /projects.html
+layout: layouts/base.njk
+eleventyComputed:
+  title: "{{ projects.title }}"
+  metaDescription: "{{ projects.metaDescription }}"
+---
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="container-narrow">
+    <p class="eyebrow reveal">{{ projects.hero.eyebrow }}</p>
+    <h1 class="hero-h1 reveal" data-delay="1">{{ projects.hero.heading }}</h1>
+    <p class="hero-lede reveal" data-delay="2">{{ projects.hero.lede | safe }}</p>
+  </div>
+</section>
+
+<!-- ─── ENGAGEMENT HISTORY ─── -->
+<section class="band">
+  <div class="container">
+    <div class="engagement-list" role="list">
+      {% for e in collections.engagements -%}
+      <article class="engagement-row reveal" role="listitem" id="{{ e.data.slug }}" data-industry="{{ e.data.industry | lower | replace(' · ', '-') | replace(' ', '-') }}">
+        <div class="er-year">{{ e.data.year }}</div>
+        <div class="er-meta">
+          <p class="er-industry">{{ e.data.industry }}</p>
+          <p class="er-location">{{ e.data.location }}</p>
+        </div>
+        <div class="er-main">
+          <h3 class="er-title">{{ e.data.title }}</h3>
+          <p class="er-role">{{ e.data.role }}</p>
+        </div>
+        <div class="er-client">{{ e.data.client }}</div>
+      </article>
+      {% endfor -%}
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section class="band band-dark">
+  <div class="container-narrow center">
+    <h2 class="t-display-lg reveal">Have a situation in mind?</h2>
+    <p class="t-body-lg t-muted-on-dark reveal" data-delay="1" style="margin-top: 1.25rem;">A short message is usually enough to start.</p>
+    <div class="hero-ctas reveal" data-delay="2" style="justify-content: center;">
+      <a href="/contact.html" class="btn btn-primary-on-dark">Get in touch</a>
+    </div>
+  </div>
+</section>

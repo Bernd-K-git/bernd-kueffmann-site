@@ -1,0 +1,29 @@
+{% set currentPath = page.url %}
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">{{ site.name }}</a>
+    <nav class="nav-links" aria-label="Main">
+      {% for item in nav.items -%}
+        <a href="{{ item.url }}"{% if currentPath === item.url or (item.url === '/' and (currentPath === '/' or currentPath === '/index.html')) %} class="is-active" aria-current="page"{% endif %}>{{ item.label }}</a>
+      {% endfor -%}
+      {% if site.languages -%}
+        <span class="nav-lang" aria-label="Language">
+          {% for l in site.languages -%}
+            {% if loop.index0 > 0 %}<span class="nav-lang-sep" aria-hidden="true">·</span>{% endif %}
+            <a href="{{ l.href }}"{% if l.active %} class="is-active" aria-current="true"{% endif %}{% if l.soon %} class="nav-lang-soon" title="German version coming soon" aria-disabled="true"{% endif %}>{{ l.label }}</a>
+          {% endfor -%}
+        </span>
+      {% endif -%}
+    </nav>
+    <button class="nav-burger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+<div class="nav-mobile" hidden>
+  <nav aria-label="Mobile">
+    {% for item in nav.items -%}
+      <a href="{{ item.url }}"{% if currentPath === item.url %} class="is-active"{% endif %}>{{ item.label }}</a>
+    {% endfor -%}
+  </nav>
+</div>

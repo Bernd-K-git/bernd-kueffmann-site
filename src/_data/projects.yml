@@ -1,0 +1,13 @@
+# ─── Projects page content ─────────────────────────────────
+# The actual project entries are individual files in _engagements/
+# (one markdown file per project — easy to add new ones in the admin).
+
+title: Selected Projects — Bernd Küffmann
+metaDescription: Complete engagement history. Twenty years of delivery across telecommunications, automotive, engineering, and banking.
+
+hero:
+  eyebrow: Selected Projects
+  heading: The engagement history.
+  lede: |
+    A chronological list of delivery, transition, recovery, and consulting engagements.
+    Industry, location, role, client.

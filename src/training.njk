@@ -1,0 +1,65 @@
+---
+permalink: /training.html
+layout: layouts/base.njk
+eleventyComputed:
+  title: "{{ training.title }}"
+  metaDescription: "{{ training.metaDescription }}"
+---
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="container-narrow">
+    <p class="eyebrow reveal">{{ training.hero.eyebrow }}</p>
+    <h1 class="hero-h1 reveal" data-delay="1">
+      {{- training.hero.heading | safe | replace("\n", "<br>") -}}
+    </h1>
+    <p class="hero-lede reveal" data-delay="2">{{ training.hero.lede | safe }}</p>
+  </div>
+</section>
+
+<!-- ─── TOPICS ─── -->
+<section class="band">
+  <div class="container">
+    <header class="band-header reveal">
+      <p class="eyebrow">{{ training.topics.eyebrow }}</p>
+      <h2 class="t-display-lg">{{ training.topics.heading }}</h2>
+    </header>
+    <div class="topics-grid">
+      {% for t in training.topics.items -%}
+      <div class="topic-item reveal" data-delay="{{ loop.index }}">
+        <h3>{{ t.title | safe }}</h3>
+        <p>{{ t.text }}</p>
+      </div>
+      {% endfor -%}
+    </div>
+  </div>
+</section>
+
+<!-- ─── FORMATS ─── -->
+<section class="band band-soft">
+  <div class="container">
+    <header class="band-header reveal">
+      <p class="eyebrow">{{ training.formats.eyebrow }}</p>
+      <h2 class="t-display-lg">{{ training.formats.heading }}</h2>
+    </header>
+    <div class="formats-list">
+      {% for f in training.formats.items -%}
+      <div class="format-row reveal">
+        <h3>{{ f.title }}</h3>
+        <p>{{ f.text }}</p>
+      </div>
+      {% endfor -%}
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section class="band band-dark">
+  <div class="container-narrow center">
+    <h2 class="t-display-lg reveal">Have a situation in mind?</h2>
+    <p class="t-body-lg t-muted-on-dark reveal" data-delay="1" style="margin-top: 1.25rem;">A short message is usually enough to start.</p>
+    <div class="hero-ctas reveal" data-delay="2" style="justify-content: center;">
+      <a href="/contact.html" class="btn btn-primary-on-dark">Get in touch</a>
+    </div>
+  </div>
+</section>

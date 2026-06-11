@@ -1,0 +1,39 @@
+# ─── Training & Mentoring page content ─────────────────────
+
+title: Training & Mentoring — Bernd Küffmann
+metaDescription: Mentoring and full-day trainings — method behind real engagements, passed on to project managers, delivery leads, and emerging program leaders.
+
+hero:
+  eyebrow: Training & Mentoring
+  heading: |
+    Knowledge that's
+    worth passing on.
+  lede: |
+    Method behind real engagements, shared with project managers, delivery leads, and
+    people stepping into program leadership. Grounded in situations Bernd has lived through.
+
+topics:
+  eyebrow: Topics
+  heading: Worth passing on.
+  items:
+    - title: Global Delivery & Shoring
+      text: Designing and running delivery models across multiple locations and time zones.
+    - title: Project Recovery
+      text: Honest diagnosis, stakeholder realignment, and replanning under pressure.
+    - title: Risk Management
+      text: Surfacing risks early, owning them visibly, and converting them into actions.
+    - title: Project Controlling
+      text: Cost, scope, and time discipline that survives contact with reality.
+    - title: Delivery Governance
+      text: Steering committees, escalation paths, and reporting that decision-makers actually use.
+    - title: Stakeholder Communication
+      text: The difference between informing, aligning, and persuading — and when to do which.
+
+formats:
+  eyebrow: Formats
+  heading: Two ways to work.
+  items:
+    - title: "1 : 1 Mentoring"
+      text: Long-form coaching for project managers and emerging program leaders. Regular cadence, real situations, confidential framing. The conversation is shaped by the mentee's current work — not a syllabus.
+    - title: Full-day Trainings
+      text: One, two, or three full days, depending on depth. Built around the team's actual delivery situation. Method, examples, and discussion — no slide marathons.

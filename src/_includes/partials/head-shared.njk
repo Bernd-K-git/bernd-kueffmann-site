@@ -1,0 +1,22 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title or site.name }}</title>
+<meta name="description" content="{{ metaDescription or '' }}">
+<link rel="canonical" href="{{ site.baseUrl }}{{ page.url }}">
+
+<meta property="og:title" content="{{ title or site.name }}">
+<meta property="og:description" content="{{ metaDescription or '' }}">
+<meta property="og:type" content="{{ ogType or 'website' }}">
+<meta property="og:url" content="{{ site.baseUrl }}{{ page.url }}">
+<meta property="og:image" content="{{ site.baseUrl }}{{ site.ogImage }}">
+<meta name="twitter:card" content="summary_large_image">
+
+{% if robots %}<meta name="robots" content="{{ robots }}">{% endif %}
+
+<link rel="preconnect" href="https://rsms.me/">
+<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+<link rel="stylesheet" href="/css/tokens.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/components.css">
+<link rel="stylesheet" href="/css/pages.css">
+<link rel="stylesheet" href="/css/animations.css">

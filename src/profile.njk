@@ -1,0 +1,103 @@
+---
+permalink: /profile.html
+layout: layouts/base.njk
+ogType: profile
+eleventyComputed:
+  title: "{{ profile.title }}"
+  metaDescription: "{{ profile.metaDescription }}"
+---
+{% block extraHead %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ site.name }}",
+  "jobTitle": "{{ site.role }}",
+  "url": "{{ site.baseUrl }}/profile.html",
+  "image": "{{ site.baseUrl }}{{ site.ogImage }}",
+  "email": "mailto:{{ site.email }}",
+  "sameAs": ["{{ site.linkedin }}"],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{ site.address.street }}",
+    "postalCode": "{{ site.address.postalCode }}",
+    "addressLocality": "{{ site.address.city }}",
+    "addressCountry": "DE"
+  },
+  "description": "{{ profile.metaDescription }}",
+  "knowsAbout": [
+    "Senior Project Management",
+    "Transition Management",
+    "Operational Excellence",
+    "Project Recovery and Stabilization",
+    "Global Delivery and Shoring",
+    "Delivery Optimization"
+  ]
+}
+</script>
+{% endblock %}
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="container-narrow">
+    <p class="eyebrow reveal">{{ profile.hero.eyebrow }}</p>
+    <h1 class="hero-h1 reveal" data-delay="1">
+      {{- profile.hero.heading | safe | replace("\n", "<br>") -}}
+    </h1>
+    <p class="hero-lede reveal" data-delay="2">{{ profile.hero.lede | safe }}</p>
+  </div>
+</section>
+
+<!-- ─── BIO ─── -->
+<section class="band">
+  <div class="container">
+    <div class="profile-bio">
+      <div class="profile-portrait reveal">
+        {% if profile.portraitImage %}
+          <img src="{{ profile.portraitImage }}" alt="{{ profile.portraitAlt }}" loading="lazy">
+        {% else %}
+          <div class="img-placeholder">Photo · TBD</div>
+        {% endif %}
+      </div>
+      <div class="profile-bio-text reveal" data-delay="1">
+        {% for paragraph in profile.bio -%}
+          <p>{{ paragraph | safe }}</p>
+        {% endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── INDUSTRIES & CLIENTS ─── -->
+<section class="band">
+  <div class="container">
+    <header class="band-header reveal">
+      <p class="eyebrow">{{ profile.industries.eyebrow }}</p>
+      <h2 class="t-display-lg">{{ profile.industries.heading }}</h2>
+      <p class="t-body t-muted" style="max-width: 720px; margin-top: 1rem;">{{ profile.industries.text }}</p>
+    </header>
+    <div class="logos-grid">
+      {% if profile.industries.logos.length -%}
+        {% for logo in profile.industries.logos -%}
+          <div class="logo-cell"><img src="{{ logo.image }}" alt="{{ logo.alt | default('Client logo') }}"></div>
+        {% endfor -%}
+      {% else -%}
+        {% for i in range(0, 8) -%}
+          <div class="logo-cell reveal" data-delay="{{ (i // 2) + 1 }}">[ Client logo ]</div>
+        {% endfor -%}
+      {% endif -%}
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONNECT ─── -->
+<section class="band band-dark">
+  <div class="container-narrow center">
+    <h2 class="t-display-lg reveal">Have a situation in mind?</h2>
+    <p class="t-body-lg t-muted-on-dark reveal" data-delay="1" style="margin-top: 1.25rem;">A short message is usually enough to start.</p>
+    <div class="hero-ctas reveal" data-delay="2" style="justify-content: center;">
+      <a href="/contact.html" class="btn btn-primary-on-dark">Get in touch</a>
+      <a href="{{ site.linkedin }}" target="_blank" rel="noopener" class="btn-link-on-dark">View LinkedIn <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
