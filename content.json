@@ -1,0 +1,54 @@
+{
+  "home": {
+    "hero_headline": "Senior Project Management for complex international delivery environments.",
+    "hero_subline": "Structured project leadership for setup, stabilization and optimization.",
+    "statement": "I step into projects when things are complex, critical or unclear.",
+    "challenges_headline": "When projects need structure and reliable execution.",
+    "challenges_subline": "I support organizations when project environments become complex, critical or unclear.",
+    "challenges": [
+      { "name": "Project Stabilization", "desc": "A project requires clearer priorities, stronger governance and reliable execution." },
+      { "name": "Scalable Delivery", "desc": "Existing delivery structures no longer support the required scope or growth." },
+      { "name": "International Coordination", "desc": "Distributed teams and stakeholders need stronger alignment and communication." },
+      { "name": "Shoring", "desc": "Nearshore or offshore structures need to be established, transitioned or improved." },
+      { "name": "Governance and Transparency", "desc": "Financials, risks, responsibilities and delivery status are not sufficiently transparent." },
+      { "name": "Transition and Recovery", "desc": "A project, supplier or delivery organization must be transferred or stabilized." }
+    ],
+    "establish_text": "I set up clear project structures, responsibilities, governance and communication from the start — creating the foundation that complex projects need to move forward.",
+    "stabilize_text": "I establish priorities, improve delivery reliability and create transparency across finances, risks and stakeholders — turning critical situations into controlled delivery.",
+    "optimize_text": "I improve delivery models, shoring structures, scalability and opportunities for automation — building delivery environments that sustain performance long-term.",
+    "evidence_headline": "Projects that required more than standard delivery.",
+    "evidence_subline": "Each engagement had a specific reason it was complex, critical or unclear. Here is what was done.",
+    "services_headline": "Three ways to work together.",
+    "services_subline": "Depending on what your situation requires — operational leadership, external advice, or structured support for your project managers.",
+    "pm_preview_desc": "Operational responsibility for project setup, transition, recovery and delivery. I lead the project.",
+    "consulting_preview_desc": "Structured analysis and recommendations for delivery models, shoring, risk management and project controlling. I assess and advise.",
+    "coaching_preview_desc": "Practical, experience-based sparring for project managers and delivery leads in demanding situations. I develop people."
+  },
+  "profile": {
+    "ep_lead": "I step into projects when things are complex, critical or unclear.",
+    "ep_p1": "With more than 20 years of experience in project, transition and program management, I support organizations in stabilizing delivery, managing transitions and setting up projects for success.",
+    "ep_p2": "My focus is on creating clarity, aligning stakeholders and bringing structure into challenging environments. I typically lead mid-sized teams in multinational and distributed setups.",
+    "ep_p3": "I work hands-on, structured and pragmatic, with a strong focus on operational excellence. This means clear targets, transparent communication and creating the space for teams to take ownership and perform.",
+    "industries_automotive": "Software delivery, connected services, infotainment, test management and PLM.",
+    "industries_telco": "Service management, CRM, campaign management, data analytics and digital services.",
+    "industries_banking": "CRM, analytical systems, campaign management and business intelligence.",
+    "industries_engineering": "Engineering services and consulting organizations, from mid-sized companies to global enterprises.",
+    "industries_international": "Project delivery across Europe, China and India — including distributed teams, nearshore structures and cross-border transitions.",
+    "hw_p1": "I work in a professional, structured and pragmatic way. I create clarity through transparent communication, clear responsibilities and reliable project governance.",
+    "hw_p2": "My leadership style is calm and collaborative. I involve relevant stakeholders, base decisions on facts and provide teams with clear direction while creating space for ownership.",
+    "hw_p3": "In critical situations, I focus on stabilizing delivery, establishing priorities and maintaining controlled execution.",
+    "tagline": "Successful projects are built on transparency, structured execution and trustful collaboration."
+  },
+  "services": {
+    "intro": "My services combine operational project responsibility with structured consulting and experience-based support for project managers and delivery leads.",
+    "pm_when": "Project setup, transition, recovery, international delivery or operational stabilization require experienced project leadership.",
+    "pm_value": "Structured execution, improved transparency and reliable project delivery.",
+    "consulting_when": "Organizations need an experienced external perspective on their project setup, delivery structures or operational performance.",
+    "consulting_value": "A clear decision basis and an applicable approach for improving delivery and project performance.",
+    "coaching_when": "Project managers and delivery leads face demanding situations or want to develop their capabilities through practical, experience-based support.",
+    "coaching_value": "Greater clarity, confidence and effectiveness in managing complex projects."
+  },
+  "footer": {
+    "cta": "Let's discuss your project."
+  }
+}
